@@ -1,129 +1,196 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# Tic Tac Toe
+#variables
+player1 = ""
+player2 = ""
+marker_operator = ["#", " ", " ", " ", " ", " ", " ", " ", " ", " ", ]
+markr_operator = ["#", "1", "2", "3", "4", "5", "6", "7", "8", "9", ]
 
-# C extensions
-*.so
+# table
+def test_table():
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+    print("| " + markr_operator[1] + " | " + markr_operator[2] + " | " + markr_operator[3] + " |")
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+    print("-------------")
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+    print("| " + markr_operator[4] + " | " + markr_operator[5] + " | " + markr_operator[6] + " |")
 
-# Translations
-*.mo
-*.pot
+    print("-------------")
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+    print("| " + markr_operator[7] + " | " + markr_operator[8] + " | " + markr_operator[9] + " |")
 
-# Flask stuff:
-instance/
-.webassets-cache
 
-# Scrapy stuff:
-.scrapy
+# New 100 lines
+def clear_area():
+    print("\n" * 2)
 
-# Sphinx documentation
-docs/_build/
 
-# PyBuilder
-target/
+# table
+def table(marker):
+    print(clear_area())
 
-# Jupyter Notebook
-.ipynb_checkpoints
+    print("| " + marker_operator[1] + " | " + marker_operator[2] + " | " + marker_operator[3] + " |")
 
-# IPython
-profile_default/
-ipython_config.py
+    print("-------------")
 
-# pyenv
-.python-version
+    print("| " + marker_operator[4] + " | " + marker_operator[5] + " | " + marker_operator[6] + " |")
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
+    print("-------------")
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+    print("| " + marker_operator[7] + " | " + marker_operator[8] + " | " + marker_operator[9] + " |")
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
 
-# SageMath parsed files
-*.sage.py
+# player input func
+def player_marker():
+    marker = ""
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+    while marker != "X" and marker != "O":
+        marker = input("player1 choose X or O: ")
 
-# Spyder project settings
-.spyderproject
-.spyproject
 
-# Rope project settings
-.ropeproject
 
-# mkdocs documentation
-/site
+    player1 = marker
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+    if player1 == "X":
+        player2 = "O"
 
-# Pyre type checker
-.pyre/
+    else:
+        player2 = "X"
+
+    print("Player1 = " + player1 + " , player2 = " + player2)
+
+
+# want to play again
+
+def want_to_play_again():
+
+    wanna_play = ""
+
+    while wanna_play != "Yes" and wanna_play != "No":
+        wanna_play = input("Do you want to play choose 'Yes' or 'No' :-")
+
+
+        if wanna_play == "Yes":
+            print(test_table())
+            print("Player1 = X , player2 = O")
+            print(rerun())
+            want_to_play_again()
+
+        else:
+            pass
+
+
+# marker_assigner
+def place_marker(board, marker, position):
+    board[position] = marker
+
+#ggs
+def rerun():
+    print("Chance of player 1")
+    place_marker(marker_operator, "X", int(input("player 1 choose place on board = ")))
+    print(table(marker_operator))
+    print("                                                                      "
+          "                                                                      "
+          )
+
+    print("Chance of player 2")
+    place_marker(marker_operator, "O", int(input("player 2 choose place on board = ")))
+    print(table(marker_operator))
+    print("                                                                      "
+          "                                                                      "
+          )
+
+    print("Chance of player 1")
+    place_marker(marker_operator, "X", int(input("player 1 choose place on board = ")))
+    print(table(marker_operator))
+    print("                                                                      "
+          "                                                                      "
+          )
+
+    print("Chance of player 2")
+    place_marker(marker_operator, "O", int(input("player 2 choose place on board = ")))
+    print(table(marker_operator))
+    print("                                                                      "
+          "                                                                      "
+          )
+
+    print("Chance of player 1")
+    place_marker(marker_operator, "X", int(input("player 1 choose place on board = ")))
+    print(table(marker_operator))
+    print("                                                                      "
+          "                                                                      "
+          )
+    print(win_check1())
+
+    print("Chance of player 2")
+    place_marker(marker_operator, "O", int(input("player 2 choose place on board = ")))
+    print(table(marker_operator))
+    print("                                                                      "
+          "                                                                      "
+          )
+    print(win_check1())
+
+
+    print("Chance of player 1")
+    place_marker(marker_operator, "X", int(input("player 1 choose place on board = ")))
+    print(table(marker_operator))
+    print("                                                                      "
+          "                                                                      "
+          )
+    print(win_check1())
+
+    print("Chance of player 2")
+    place_marker(marker_operator, "O", int(input("player 2 choose place on board = ")))
+    print(table(marker_operator))
+    print("                                                                      "
+          "                                                                      "
+          )
+    print(win_check1())
+
+    print("Chance of player 1")
+    place_marker(marker_operator, "X", int(input("player 1 choose place on board = ")))
+    print(table(marker_operator))
+    print("                                                                      "
+          "                                                                      "
+          )
+    print(win_check1())
+
+
+
+def win_check(board, mark):
+    return ((board[7] == mark and board[8] == mark and board[9] == mark) or
+            (board[4] == mark and board[5] == mark and board[6] == mark) or
+            (board[1] == mark and board[2] == mark and board[3] == mark) or
+            (board[7] == mark and board[4] == mark and board[1] == mark) or
+            (board[8] == mark and board[5] == mark and board[2] == mark) or
+            (board[9] == mark and board[6] == mark and board[3] == mark) or
+            (board[7] == mark and board[5] == mark and board[3] == mark) or
+            (board[9] == mark and board[5] == mark and board[1] == mark))
+
+
+def win_check1():
+    if win_check(marker_operator, "X") == True:
+        print("Player 1 You Win ")
+        quit()
+
+
+    elif win_check(marker_operator, "O") == True:
+        print("Player 2 you win")
+        quit()
+
+    else:
+        print("             "
+              "             "
+              "             ")
+
+# play again function
+
+print(want_to_play_again())
+
+
+
+
+
+
+
+
